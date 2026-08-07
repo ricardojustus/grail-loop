@@ -1,10 +1,58 @@
-# Grail Loop
+<p align="center">
+  <img src="assets/grail-loop-logo.png" alt="Grail Loop" width="440">
+</p>
 
-An autonomous build methodology for coding agents: a machine-verified floor, an unreachable ceiling, and an honest stop.
+<p align="center"><em>A machine-verified floor, an unreachable ceiling, and an honest stop.</em></p>
 
-Point it at a game, an app, a site, or a design piece. It writes a machine-checkable definition of done before building anything, then builds in cycles while fresh cold-context critics blind-compare every cycle's output against master references it can never match (real film stills, shipped AAA frames, best-in-class product UI). The pursuit of an unreachable bar is what forges the quality. Telemetry, not vibes, decides when the run ends.
+> *(hero image: cycle 1 vs cycle N vs master reference, side by side: coming after the first public run)*
+
+---
+
+**Grail Loop** is an autonomous build methodology for coding agents. Point it at a game, an app, a site, or a design piece. It writes a machine-checkable definition of done before building anything, then builds in cycles while fresh cold-context critics blind-compare every cycle's output against master references it can never match (real film stills, shipped AAA frames, category-defining product UI). The pursuit of an unreachable bar is what forges the quality. Telemetry, not vibes, decides when the run ends.
 
 Ships as a [Claude Code](https://code.claude.com) skill: one `SKILL.md` router plus eight on-demand reference files.
+
+## Quickstart
+
+```bash
+git clone https://github.com/ricardojustus/grail-loop ~/.claude/skills/grail-loop
+```
+
+Then, in Claude Code:
+
+```
+/grail <what you want built>                 the agent picks mode and domain
+/grail asymptotic game <one-shot prompt>     full quality pursuit
+/grail bounded <task>                        rigor only, real finish line
+/grail asymptotic app ./VISION.md            you own design, agent owns execution
+```
+
+You can name quality bars ("at the level of X") and a style ("in the vein of Y"), or leave both to the agent.
+
+## Writing an asymptotic request
+
+The run works from one prompt. The shape matters more than the length:
+
+1. **Concept**: everything that makes it THIS thing, nothing about how. Include every load-bearing mechanic; leave implementation free.
+2. **Scope bound**: one concrete boundary ("one ship, one expedition", "one core journey, three screens"). A bound creates the shape; it does not shrink the ambition.
+3. **Direction** (optional): a style vocabulary to imitate, "in the vein of Dead Space's diegetic interfaces". This is a starting language, never a judge.
+4. **Bars** (optional): unreachable masters to be judged against, "at the level of Alien: Isolation's atmosphere". One master per quality dimension. If you skip this, the agent selects bars and logs its reasoning in DECISIONS.md.
+
+Everything else (the story beats, the layout, the UI) is the agent's to invent. That delegation is where the one-shot surprise lives.
+
+Example, full shape:
+
+> /grail asymptotic game "Build DRIFTWAKE: a lone salvager boards a derelict colony ship adrift in a nebula, restoring power deck by deck to reach the bridge and learn why the crew vanished. Every restored system changes how the ship behaves (lights, doors, gravity) and something aboard responds to the power coming back. One ship, story resolves in a single expedition across 6-8 decks. In the vein of Dead Space's diegetic interfaces. At the AAA quality level of Alien: Isolation's dread and atmosphere and The Last of Us Part II's environmental storytelling."
+
+## Choosing references: high, clear, unreachable
+
+The bar set is the highest-leverage decision you can make. Three rules:
+
+- **Unreachable by default.** Every bar must be something the output will lose to for the entire run. The pursuit of a bar it cannot catch is the quality engine; a catchable bar is an exit door, and the run will find it. If the agent could plausibly tie your reference, it is a direction ("in the vein of"), never a bar.
+- **High means master-tier.** Shipped AAA frames, real film cinematography, category-defining product UI. Film stills are the strongest visual bar per token that exists: no game render outshoots a hundred-million-dollar cinematographer.
+- **Clear means inspectable.** A bar only works if a critic can hold a concrete artifact of it next to your output: a frame, a screenshot, a captured flow. "Nintendo-quality polish" is a wish; "God of War Ragnarök's one-shot camera through combat" is a bar. Name the dimension each bar judges.
+
+Your own captures from products you own usually beat press shots: real gameplay frames at the angles your output will actually produce. The skill asks once at launch whether you want to supply them.
 
 ## Why it exists
 
@@ -33,9 +81,27 @@ Fresh critics cannot calibrate absolute scores across rounds (every fresh judge 
 - **Master A/B** (altitude): per-dimension blind deltas against the reference masters. Measures which way is up.
 - **Deficiency ledger**: every complaint classified new / repeat / reintroduced, with fix attempts counted. A twice-attacked survivor reported by critics who never met each other is a wall, and the map of walls ships in the final report as a first-class deliverable: where the model's ceiling actually sits.
 
+## What a cycle looks like
+
+One critic verdict, in the ledger's shape (illustrative until the first public run ships a real one):
+
+```text
+CYCLE 4: champion vs challenger: +1 (challenger, narrowly)
+MASTER A/B vs Alien: Isolation frame 07 (corridor atmosphere): master
+wins, NARROWLY.
+  - emergency lighting flattens to uniform red past 10m (repeat, attempt 2)
+  - fog volume clips against bulkhead geometry (new)
+vs The Last of Us Part II (environmental storytelling): master wins,
+decisively.
+```
+
+The critic logs are the shareable artifact.
+
 ## The honest stop
 
-An unreachable bar with no brake is a token furnace. The run ends only by explicit rule:
+Every asymptotic pursuit eventually hits diminishing returns: the early cycles are the steep part of the curve, and past some point each cycle buys less improvement than the last, while "it's still improving" remains technically true forever, because that is what an asymptote is. A run that stops on its own satisfaction stops too early; a run that stops when improvement ends never stops at all. So the stop was designed around the one thing that does change: the rate of approach. The telemetry watches for the flattening (margins stalling, dimension wins drying up, critics repeating themselves) and ends the run when the tokens stop converting into quality, not when the quality stops being imperfect. An unreachable bar with no such brake is just a token furnace.
+
+The run ends only by explicit rule:
 
 1. **Plateau declared**: 2 of 3 stall tests hold over a 3-cycle window (margin stall, altitude stall, criticism exhaustion). Declaration triggers one structural gambit at the top persistent deficiency; a decisive win resets the window, anything less finalizes.
 2. **Oscillation**: the same deficiency reintroduced twice (fixed, broken, fixed, broken). Immediate declaration, the loop is chasing its tail.
@@ -45,24 +111,7 @@ There is deliberately no codified budget cap: a cap amputates exactly the long-t
 
 ## Cost: read this before running
 
-**A Grail Run is a deliberate, heavy token spend.** Asymptotic mode runs cycles of builder fan-outs and multi-critic reviews, potentially for hours. That spend is the price of very high quality output in one autonomous shot. The skill states this and asks for your explicit GO at launch, plus one question (sub-agent model: strongest non-frontier tier by default, currently Opus-class). No GO, no run.
-
-## Install
-
-```bash
-git clone https://github.com/ricardojustus/grail-loop ~/.claude/skills/grail-loop
-```
-
-Then, in Claude Code:
-
-```
-/grail <what you want built>                 the agent picks mode and domain
-/grail asymptotic game <one-shot prompt>     full quality pursuit
-/grail bounded <task>                        rigor only, real finish line
-/grail asymptotic app ./VISION.md            you own design, agent owns execution
-```
-
-You can name quality bars ("at the level of X") and a style ("in the vein of Y"), or leave both to the agent.
+**A Grail Run is a deliberate, heavy token spend.** Asymptotic mode runs cycles of builder fan-outs and multi-critic reviews, potentially for hours. That spend is the price of very high quality output in one autonomous shot. The skill states this and asks for your explicit GO at launch, plus one question about the sub-agent model (the launch gate names its current default and asks before starting, so this README never goes stale on model names). No GO, no run.
 
 ## Reference images and copyright
 
@@ -81,6 +130,21 @@ references/apps.md          domain pack: apps and sites
 references/design.md        domain pack: static design work
 references/templates.md     CONTRACT, LEDGER, FINAL_REPORT skeletons
 ```
+
+## FAQ
+
+**Will it ever pass the master comparison?**
+No. That is the design, not the defect. See "The honest stop": the run ends by telemetry, and the gap it could not close ships as a deliverable.
+
+**Can I supply my own reference images?**
+Yes, and you probably should: captures from products you own, at the angles your output will produce, beat press shots. The skill asks once at launch.
+
+**How much will this cost?**
+Deliberately uncapped: a hard cap amputates the long-tail cycles the pursuit exists for. The GO gate means you never spend it by accident, and the gentlest constraint to name at launch is max cycles, since it never cuts a cycle in half.
+
+## Ran a grail run?
+
+PR your FINAL_REPORT.md and three captures (first cycle, last cycle, one master ref side-by-side) into [/gallery](gallery/). The persistent-deficiency maps, collected across models and domains, become a shared atlas of where agent capability ceilings actually sit. That atlas is the bigger project.
 
 ## License
 

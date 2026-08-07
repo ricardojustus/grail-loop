@@ -22,28 +22,43 @@ Firewatch asks "does this look like Firewatch?" and beats every original
 choice back toward a clone. Masters judge *qualities* (composition, warmth,
 density); a peer-level reference judges *identity*.
 
-Rule of thumb: if the build could plausibly get within blind-A/B hesitation
-distance of a reference during this run, it is a direction, not a bar.
-
 ## Choosing the bars
+
+High, clear, unreachable — the three tests every bar passes:
+
+- **Unreachable by default.** Every bar must be something the output will
+  lose to for the entire run — the pursuit of a bar it cannot catch is the
+  quality engine; a catchable bar is an exit door, and the run will find
+  it. If the build could plausibly get within blind-A/B hesitation
+  distance of a reference during this run, it is a direction ("in the
+  vein of"), never a bar.
+- **High means master-tier.** Shipped AAA frames, real film
+  cinematography, category-defining product UI, master canvases. Film
+  stills are the strongest visual bar per token that exists: no game
+  render outshoots a hundred-million-dollar cinematographer.
+- **Clear means inspectable.** A bar only works if a critic can hold a
+  concrete artifact of it next to an artifact of yours: a frame, a
+  screenshot, a captured flow. "Nintendo-quality polish" is a wish; "God
+  of War Ragnarök's one-shot camera through combat" is a bar. Name the
+  dimension each bar judges; if you cannot name what artifact gets
+  compared against what reference, the gauntlet is the wrong tool for
+  that dimension — route it to the Contract or the systems critic.
+
+And the set-level craft:
 
 1. **One master per dimension, non-overlapping.** Feel, image quality,
    composition, warmth, dread, density — each gets its own unreachable
    authority. Overlapping bars produce redundant criticism; too many produce
    noise. 3–5 bars plus the systems critic is the ceiling.
-2. **Concrete and inspectable.** The critic must be able to hold an artifact
-   of yours next to an artifact of theirs. Film stills, shipped-game
-   screenshots, real product UI captures, master canvases. If you cannot name
-   what artifact gets compared against what reference, the gauntlet is the
-   wrong tool for that dimension — route it to the Contract or the systems critic.
-3. **Cross-media bars are legal and strong.** Hundred-million-dollar film
+2. **Cross-media bars are legal and strong.** Hundred-million-dollar film
    cinematography is a legitimate bar for a game's composition. Master
    animation is a legitimate bar for stylized image quality. The bar's medium
    need not match the build's medium; the *dimension* must.
-4. **If the user supplied no bars**: propose them. Ask which comp plays the
+3. **If the user supplied no bars**: propose them. Ask which comp plays the
    role real Call of Duty screenshots played for the original — the strongest
    concrete unreachable reference per dimension — state each in one sentence,
-   confirm only if the choice is genuinely ambiguous.
+   confirm only if the choice is genuinely ambiguous. Log the reasoning in
+   DECISIONS.md.
 
 ## Informative-bar diagnostics (mid-run)
 
