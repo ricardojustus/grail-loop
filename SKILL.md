@@ -198,6 +198,11 @@ Each line is the rule; the named reference owns the procedure and numbers.
 - **Imitate the reachable, lose to the unreachable.** Direction and bar
   are different slots; a reachable reference in the bar set installs an
   exit door. Split: `references/bars.md`.
+- **The floor must be passable; the ceiling must not be.** Critic verdicts,
+  master comparisons, and margin thresholds never enter the Contract — one
+  unreachable criterion deadlocks finalization; user quality language ("at
+  X quality", "AAA") is ceiling material by default. Law:
+  `references/contract.md`.
 - **refs/ stays intact for every critic** until the final action.
   Lifecycle: `references/bars.md`.
 - **The capture manifest is frozen instrumentation.** Every cycle captures

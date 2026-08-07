@@ -7,10 +7,11 @@ the jobs apart:
 
 ## The direction / bar split
 
-- **Direction** = what to imitate. A reachable style vocabulary the builders
-  aim their choices at (e.g., "painterly realism in the vein of Firewatch").
-  Lives in the concept/ambition paragraphs. The builders may depart from it;
-  it is a starting language, not a ceiling.
+- **Direction** = what to imitate. A style vocabulary the builders aim
+  their choices at (e.g., "painterly realism in the vein of Firewatch") —
+  usually a reachable reference, since its job is to permit imitation.
+  Lives in the concept/ambition paragraphs. The builders may depart from
+  it; it is a starting language, not a ceiling.
 - **Bar** = what to lose to forever. Unreachable masters the critics hold the
   work against, blind. Lives in the HARD-bar sentence and the refs/ folder.
 
@@ -21,6 +22,18 @@ punish deviation while directions permit it: a critic comparing against
 Firewatch asks "does this look like Firewatch?" and beats every original
 choice back toward a clone. Masters judge *qualities* (composition, warmth,
 density); a peer-level reference judges *identity*.
+
+**The mirror law lives in contract.md**: the floor must be passable; the
+ceiling must not be. Master comparisons, critic verdicts, and margin
+thresholds never enter the Contract — a run finalizes only at 100%, so one
+unreachable criterion deadlocks it.
+
+Note the asymmetry the split actually enforces: it forbids reachable
+references from being bars — it does not forbid one unreachable reference
+from holding several jobs. "Make me Call of Duty at Call of Duty quality"
+is legal and well-formed: the same unreachable reference serves as concept,
+direction, and bar simultaneously, and the Contract receives only its
+measurable shadow (contract.md).
 
 ## Choosing the bars
 

@@ -29,9 +29,12 @@ spontaneity — the agent authored the criteria, so design freedom is intact.
 **The contract cold-read (mandatory, bare-prompt mode only).** A self-authored
 Contract has one undefended loophole: honest-looking but hollow criteria.
 Before building starts, hand one fresh critic CONTRACT.md and the aim prompt —
-nothing else — with the question: *if this artifact were secretly broken or
-hollow, what check is missing?* Incorporate accepted findings; log rejected
-ones with reasons in DECISIONS.md. One dispatch, and even the floor gets
+nothing else — with two questions: *if this artifact were secretly broken or
+hollow, what check is missing?* and *does any criterion's pass depend on
+critic judgment or an unreachable comparison? Flag it for removal or
+reformulation as a measured benchmark* (the exclusivity law below — one
+unreachable criterion deadlocks finalization). Incorporate accepted findings;
+log rejected ones with reasons in DECISIONS.md. One dispatch, and even the floor gets
 adversarial review before a single line is built. (Vision-doc runs skip this —
 the human authored the Definition of Done.)
 
@@ -70,11 +73,45 @@ Bad: "The game feels polished." (That is ceiling territory, not Contract.)
   Late-run gambits and refactors can silently break early passes; the final
   sweep catches it.
 
-## Contract vs ceiling boundary
+## The floor/ceiling exclusivity law
 
-If a criterion can genuinely reach done, it is Contract. If "better" remains
-meaningful past any achievable threshold, it is ceiling. When in doubt: put the
-measurable floor in the Contract (60fps minimum, WCAG AA contrast, test suite
-green) and the aspiration in the ceiling (feel like Insomniac, read like Linear).
-The same dimension often appears in both, at different altitudes. That is
-correct, not redundant.
+The mirror of bars.md's "a reachable reference is never a bar": **the floor
+must be passable; the ceiling must not be.** Contract criteria are reachable
+by construction — every item can genuinely go green on this run. Master
+comparisons, critic verdicts, and margin thresholds never enter the
+Contract, no matter how mechanical they look: "spawn a critic, read the
+verdict" is technically a procedure, but its PASS depends on judgment, not
+on script output.
+
+This is load-bearing, not taxonomy. A run finalizes only at Contract 100%,
+so one unreachable item deadlocks finalization: "beats the master A/B on
+atmosphere" can never pass by design, and the run holding it can never end.
+The ceiling has stop rules precisely because it never completes; the
+Contract has none because it must.
+
+The test, per criterion, at authoring time:
+
+- Pass depends on critic judgment rather than script/test output → ceiling.
+- Can never reach 100% → it belongs nowhere: reformulate it as a measured
+  benchmark with a fixed threshold (then it is Contract), or hand its
+  dimension to the ceiling as a bar.
+
+(Scope: the law governs *criteria*. The contract cold-read above still uses
+a critic, legally — its output is advisory review of the Contract, never a
+criterion's pass condition.)
+
+**User quality language routes to the ceiling by default.** "At X quality,"
+"AAA," "as good as X" — including the degenerate prompt "make me Call of
+Duty at Call of Duty quality" — names ceiling material: bars and direction.
+The Contract receives only the quality demand's measurable shadow, authored
+by the agent: performance floors, completion checks, stability under
+destructive tests, playable end to end. (One unreachable reference legally
+serving as concept, direction, and bar at once is fine — see bars.md; the
+split forbids only reachable references from being bars.)
+
+When in doubt at the boundary: if a criterion can genuinely reach done, it
+is Contract. If "better" remains meaningful past any achievable threshold,
+it is ceiling. Put the measurable floor in the Contract (60fps minimum,
+WCAG AA contrast, test suite green) and the aspiration in the ceiling (feel
+like Insomniac, read like Linear). The same dimension often appears in
+both, at different altitudes. That is correct, not redundant.
