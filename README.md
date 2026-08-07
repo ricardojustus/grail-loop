@@ -81,7 +81,7 @@ Fresh critics cannot calibrate absolute scores across rounds (every fresh judge 
 
 ## What a cycle looks like
 
-One critic verdict, in the ledger's shape (illustrative until the first public run ships a real one):
+One critic verdict, in the ledger's shape (illustrative):
 
 ```text
 CYCLE 4: champion vs challenger: +1 (challenger, narrowly)
@@ -92,8 +92,6 @@ wins, NARROWLY.
 vs The Last of Us Part II (environmental storytelling): master wins,
 decisively.
 ```
-
-The critic logs are the shareable artifact.
 
 ## The honest stop
 
