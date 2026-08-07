@@ -107,7 +107,7 @@ There is deliberately no codified budget cap: a cap amputates exactly the long-t
 
 ## Cost: read this before running
 
-**A Grail Run is a deliberate, heavy token spend.** Asymptotic mode runs cycles of builder fan-outs and multi-critic reviews, potentially for hours. That spend is the price of very high quality output in one autonomous shot. The skill states this and asks for your explicit GO at launch, plus one question about the sub-agent model (the launch gate names its current default and asks before starting, so this README never goes stale on model names). No GO, no run.
+**A Grail Run is a deliberate, heavy token spend.** Asymptotic mode runs cycles of builder fan-outs and multi-critic reviews, potentially for hours. That spend is the price of very high quality output in one autonomous shot. The skill states this and asks for your explicit GO at launch, plus one question about the sub-agent model: it names the current default and asks if you want to change it. No GO, no run.
 
 ## Reference images and copyright
 
