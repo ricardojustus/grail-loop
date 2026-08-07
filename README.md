@@ -4,8 +4,6 @@
 
 <p align="center"><em>A machine-verified floor, an unreachable ceiling, and an honest stop.</em></p>
 
-> *(hero image: cycle 1 vs cycle N vs master reference, side by side: coming after the first public run)*
-
 ---
 
 **Grail Loop** is an autonomous build methodology for coding agents. Point it at a game, an app, a site, or a design piece. It writes a machine-checkable definition of done before building anything, then builds in cycles while fresh cold-context critics blind-compare every cycle's output against master references it can never match (real film stills, shipped AAA frames, category-defining product UI). The pursuit of an unreachable bar is what forges the quality. Telemetry, not vibes, decides when the run ends.
