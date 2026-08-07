@@ -140,7 +140,7 @@ Deliberately uncapped: a hard cap amputates the long-tail cycles the pursuit exi
 
 ## Ran a grail run?
 
-PR your FINAL_REPORT.md and three captures (first cycle, last cycle, one master ref side-by-side) into [/gallery](gallery/). The persistent-deficiency maps, collected across models and domains, become a shared atlas of where agent capability ceilings actually sit. That atlas is the bigger project.
+PR your FINAL_REPORT.md and three captures (first cycle, last cycle, one master ref side-by-side) into [/gallery](gallery/).
 
 ## License
 
