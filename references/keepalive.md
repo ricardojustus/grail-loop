@@ -41,22 +41,36 @@ working, not waste.
 ## The hard loop (optional)
 
 A Stop-hook completion-promise: a hook on the runtime's stop event
-re-injects the run prompt until an exact finalization phrase appears or
-an iteration cap hits.
+re-injects a continuation payload until an exact finalization phrase
+appears or a cap hits.
 
-- **Bounded runs**: phrase = the Contract-verified finalization line;
-  cap = a generous ceiling — the Contract is reachable, so the cap is a
-  runaway brake, not a budget.
-- **Asymptotic runs** (optional): phrase = the FINAL_REPORT finalization
-  line; cap = the max-cycles constraint, where the human named one.
+- **Bounded runs**: payload = the run prompt; phrase = the
+  Contract-verified finalization line; cap = a generous iteration
+  ceiling — the Contract is reachable, so the cap is a runaway brake,
+  not a budget.
+- **Asymptotic runs** (optional): the hook is a STALL-RECOVERY device,
+  not a completion device — the stop rules own termination. Payload = a
+  continuation sentinel ("resume the run from LEDGER and the compaction
+  checkpoint; evaluate the stop rules; continue"), never the original
+  aim prompt: re-injecting the aim prompt at cycle 7 induces
+  restart-from-zero reasoning, the amnesia the checkpoint exists to
+  prevent. Cap = progress-keyed, not run-keyed: N consecutive
+  re-injections (default 5) with no new LEDGER entry stops the hook,
+  parks a question, and notifies — bounding stall-thrash, never run
+  length. The phrase exit still applies when finalization legitimately
+  occurs, and only after the stop-rule evaluation is written to LEDGER
+  with its evidence. Where the harness carries this shape natively
+  (Manifold's autonomous-work completion-promise loop does), defer to
+  it.
 
 Generic shape — adapt to the runtime's hook schema:
 
 ```text
 on stop-event:
-  transcript contains "<EXACT FINALIZATION PHRASE>" → allow the stop
-  iterations ≥ CAP → allow the stop, flag it: "cap-stopped, NOT finished"
-  otherwise → block the stop, re-inject the run prompt
+  last message contains "<EXACT FINALIZATION PHRASE>" → allow the stop
+  cap hit (iterations, or re-injections without ledger progress) →
+    allow the stop, flag it: "stopped by the cap, NOT finished"
+  otherwise → block the stop, re-inject the payload
 ```
 
 The hard loop complements the stop rules and relaxes none of them: the
