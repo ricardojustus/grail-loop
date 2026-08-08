@@ -229,6 +229,10 @@ Each line is the rule; the named reference owns the procedure and numbers.
   active skill defines them; grail entries join that journal rather than
   fork a second one. Write all of them as if the run's honesty will be
   judged by them, because it will.
+- **An unattended run must not stall silently.** Where the harness
+  provides an autonomous-running convention (heartbeats, watchers, stop
+  boundaries), invoke it at launch — it supersedes the baseline.
+  Otherwise apply the portable baseline: `references/keepalive.md`.
 - **Operate only inside the declared workspace**, and preserve fixtures,
   captured data, and queued handoffs — destructive tests run on copies
   (`references/contract.md`).
@@ -245,6 +249,9 @@ Read on demand, not upfront:
   ledger, telemetry schema.
 - `references/plateau.md` — plateau thresholds and window, the plateau
   protocol, the gambit, finalization.
+- `references/keepalive.md` — the anti-stall baseline: heartbeat, watcher
+  discipline, the optional Stop-hook hard loop (applies when no harness
+  autonomous-running convention supersedes it).
 - `references/bars.md` — bar selection, direction/bar split,
   informative-bar diagnostics, refs/ lifecycle.
 - `references/games.md` / `references/apps.md` / `references/design.md` —
