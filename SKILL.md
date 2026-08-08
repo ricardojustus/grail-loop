@@ -4,7 +4,7 @@ description: >-
   Grail Loop: autonomous build methodology — a Contract (machine-verified
   completion floor) plus an unreachable ceiling of master reference bars
   chased by blind A/B comparison, with plateau telemetry that ends the run
-  honestly. Invoke for /grail, "grail loop", or "gauntlet loop", for any long unsupervised
+  honestly. Invoke for /grail-loop, "grail loop", or "gauntlet loop", for any long unsupervised
   build run of an app, game, site, or design, when the user asks to build
   "at the level of" a named reference, says "keep improving until", or
   hands over a vision doc or one-shot build prompt.
@@ -16,21 +16,22 @@ Named for its defining move: the run chases reference bars it can never
 reach, and the pursuit itself forges the quality. That is the only place
 the name appears — the process vocabulary below is what the run thinks in.
 
-Invocation shape: `/grail [bounded|asymptotic] [game|app|design] [prompt or
-path to vision doc]` — all arguments optional; infer what is missing.
+Invocation shape: `/grail-loop [bounded|asymptotic] [game|app|design]
+[prompt or path to vision doc]` — all arguments optional; infer what is
+missing.
 
-**On a bare `/grail`, or when the user asks what this skill is or how to
-use it, print the Usage card below, then wait.**
+**On a bare `/grail-loop`, or when the user asks what this skill is or how
+to use it, print the Usage card below, then wait.**
 
 ## Usage card
 
 ```text
 GRAIL LOOP — autonomous build runs with a verified floor and a chased ceiling.
 
-  /grail <what you want built>                 I pick mode and domain
-  /grail quest game <one-shot prompt>          full quality pursuit (asymptotic)
-  /grail errand <task>                         rigor only, no pursuit (bounded)
-  /grail asymptotic app ./VISION.md            you own design, I own execution
+  /grail-loop <what you want built>            I pick mode and domain
+  /grail-loop quest game <one-shot prompt>     full quality pursuit (asymptotic)
+  /grail-loop errand <task>                    rigor only, no pursuit (bounded)
+  /grail-loop asymptotic app ./VISION.md       you own design, I own execution
 
 You can name quality bars ("at the level of X") and a style ("in the vein
 of Y") — or leave both to me. I will: write CONTRACT.md (the machine-checked
@@ -99,16 +100,17 @@ run's own thinking; the human never needs them.
    direction/bar split: `references/bars.md`. Critic roster and domain
    Contract patterns: the one matching domain file (`references/games.md`,
    `references/apps.md`, `references/design.md`). Build `refs/` per the
-   lifecycle in bars.md, and freeze the capture manifest
-   (`references/critics.md`).
+   lifecycle in bars.md, then freeze the capture manifest and seal the
+   hidden set (`references/critics.md`).
 5. **Fill the aim prompt** (asymptotic) from the skeleton below and
    execute it as your own instructions immediately.
 6. **Run the loop**, logging telemetry per `references/critics.md`.
 7. **Check the stop rules** (below) every cycle.
 8. **Finalize**: re-verify the full Contract from clean state with
-   evidence, write FINAL_REPORT.md, deliver the persistent-deficiency
-   map — a real deliverable: the evidence-backed map of where the model's
-   ceiling was on this run.
+   evidence, open the hidden set for its one-time panel
+   (`references/plateau.md`), write FINAL_REPORT.md, deliver the
+   persistent-deficiency map — a real deliverable: the evidence-backed
+   map of where the model's ceiling was on this run.
 
 ## The aim prompt skeleton (asymptotic mode)
 
@@ -209,6 +211,13 @@ Each line is the rule; the named reference owns the procedure and numbers.
   exactly the cycle-1 manifest; per-cycle captures persist until
   finalization — the champion's captures are the odometer's memory.
   Lifecycle: `references/critics.md`.
+- **The hidden set stays sealed.** At cycle 1 the run also seals a second
+  capture set as a holdout — held in orchestrator state, never in the
+  repo's manifest file or anything builders read; never captured, judged,
+  or named to builders during the run. Finalization opens it exactly once
+  for a cold panel, and FINAL_REPORT carries the manifest-vs-hidden margin
+  delta. The panel audits the stop; it never gates it. Protocol:
+  `references/critics.md`.
 - **Process vocabulary stays out of the artifact.** Contract, ceiling,
   champion, ledger, plateau, gambit describe the methodology only; the
   artifact's code, naming, copy, and content take vocabulary from the

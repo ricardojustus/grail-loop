@@ -65,6 +65,10 @@ Cycles: <n> · Spend: <tokens/hours consumed>
 Champion-margin curve · dimension-wins curve · repeat-rate curve
 (informative bars named; aspirational bars named)
 
+## Generalization (hidden-set audit)
+Manifest margins vs hidden-shot margins, per dimension → delta.
+Verdict: <quality generalized | manifest overfitting — a finding>.
+
 ## Persistent-deficiency map  ← a first-class deliverable
 For each wall: the deficiency, fix attempts, why it held, whether the gambit
 attacked it, and the agent's hypothesis (model ceiling vs medium ceiling vs

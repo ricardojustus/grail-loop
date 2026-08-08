@@ -39,6 +39,35 @@ deleted or modified until finalization. The champion's captures are the
 odometer's memory — deleting them blinds the odometer the way deleting
 refs/ blinds the masters.
 
+## The hidden set (sealed holdout)
+
+The manifest has a blind spot: every angle the run judges itself on is
+also an angle builders get feedback on, so a long run can overfit to the
+manifest — polishing the judged shots while everything off-camera lags.
+The hidden set is the holdout that catches this.
+
+At cycle 1, alongside the manifest, define a second capture set of the
+same form (scenes, cameras, states, exact commands) covering angles and
+states the manifest does not — then **seal it**:
+
+- **Stored in orchestrator state only** — the orchestrating context's own
+  notes, never the repo's manifest file, CONTRACT.md, LEDGER.md, or any
+  file builders or critics read. Its existence may be logged; its
+  contents may not.
+- **Never captured, never judged, never named to builders** during the
+  run. A holdout that leaks feedback is just more manifest.
+- **Opened exactly once, at finalization.**
+
+At finalization, capture the hidden set for the first time and run one
+cold critic panel on it — same protocol as a normal master A/B round:
+fresh critics, blind, dimension-decomposed, deltas only. Set its margins
+beside the final manifest margins and write the difference into
+FINAL_REPORT's generalization line: a small delta means the quality
+generalized beyond the judged angles; a large delta means manifest
+overfitting — reported as a finding. **The panel audits the stop; it
+never gates it** — the run ends by the normal stop rules, and a bad delta
+is a finding in the report, never a reason to reopen the loop.
+
 ## The three comparison instruments
 
 ### 1. Champion–challenger comparison (the odometer)

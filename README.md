@@ -19,10 +19,10 @@ git clone https://github.com/ricardojustus/grail-loop ~/.claude/skills/grail-loo
 Then, in Claude Code:
 
 ```
-/grail <what you want built>                 the agent picks mode and domain
-/grail asymptotic game <one-shot prompt>     full quality pursuit
-/grail bounded <task>                        rigor only, real finish line
-/grail asymptotic app ./VISION.md            you own design, agent owns execution
+/grail-loop <what you want built>            the agent picks mode and domain
+/grail-loop asymptotic game <one-shot prompt>  full quality pursuit
+/grail-loop bounded <task>                   rigor only, real finish line
+/grail-loop asymptotic app ./VISION.md       you own design, agent owns execution
 ```
 
 You can name quality bars ("at the level of X") and a style ("in the vein of Y"), or leave both to the agent.
@@ -40,7 +40,7 @@ Everything else (the story beats, the layout, the UI) is the agent's to invent. 
 
 Example, full shape:
 
-> /grail asymptotic game "Build DRIFTWAKE: a lone salvager boards a derelict colony ship adrift in a nebula, restoring power deck by deck to reach the bridge and learn why the crew vanished. Every restored system changes how the ship behaves (lights, doors, gravity) and something aboard responds to the power coming back. One ship, story resolves in a single expedition across 6-8 decks. In the vein of Dead Space's diegetic interfaces. At the AAA quality level of Alien: Isolation's dread and atmosphere and The Last of Us Part II's environmental storytelling."
+> /grail-loop asymptotic game "Build DRIFTWAKE: a lone salvager boards a derelict colony ship adrift in a nebula, restoring power deck by deck to reach the bridge and learn why the crew vanished. Every restored system changes how the ship behaves (lights, doors, gravity) and something aboard responds to the power coming back. One ship, story resolves in a single expedition across 6-8 decks. In the vein of Dead Space's diegetic interfaces. At the AAA quality level of Alien: Isolation's dread and atmosphere and The Last of Us Part II's environmental storytelling."
 
 ## Choosing references: high, clear, unreachable
 

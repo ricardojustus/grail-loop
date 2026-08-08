@@ -65,12 +65,18 @@ Plateau ≠ stop. On declaration:
 
 1. Re-verify the **entire Contract** with fresh evidence (gambits can silently
    break early passes).
-2. Write FINAL_REPORT.md: what shipped, the margin curves, and the
-   persistent-deficiency map — which walls the run died against and how hard
-   each was attacked. Both endings are good mornings: "plateaued, gambit
-   worked, kept going" or "plateaued, gambit failed, here is exactly where
-   the ceiling was."
-3. Delete refs/ as the very final action, after the last critic evaluation.
+2. **Open the hidden set**: capture the sealed holdout shots for the first
+   time and run the one-time cold panel (protocol: critics.md). The
+   manifest-vs-hidden margin delta goes into FINAL_REPORT's generalization
+   line. This audits the stop, it does not gate it — a large delta is a
+   finding in the report, never a reason to resume the run.
+3. Write FINAL_REPORT.md: what shipped, the margin curves, the
+   generalization line, and the persistent-deficiency map — which walls the
+   run died against and how hard each was attacked. Both endings are good
+   mornings: "plateaued, gambit worked, kept going" or "plateaued, gambit
+   failed, here is exactly where the ceiling was."
+4. Delete refs/ as the very final action, after the last critic
+   evaluation — the hidden-set panel included.
 
 ## The outer boundary
 
