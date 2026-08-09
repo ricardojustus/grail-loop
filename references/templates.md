@@ -53,7 +53,9 @@ named at launch (a file only the workstation can read is not a glance
 surface; use the harness-named synced/served surface where one exists).
 **Update cadence**: at every panel close, at every champion change, and
 as pieces land visible improvements — the surface stays live, never
-hours stale. Newest first: current champion captures, per-wave
+hours stale. At cycle close the workbench is a GATE, not a cadence: a
+cycle does not close against a stale workbench (SKILL.md, Cycles — the
+close checklist). Newest first: current champion captures, per-wave
 screenshots, the latest panel verdicts (one line each), Contract-lane
 progress (n/total), the run's status line. The workbench SHOWS; the
 LEDGER measures — no telemetry tables here, and the sealed hidden set
@@ -75,7 +77,8 @@ and fixes, headline critic verdicts, plateau evaluations, the gambit.
 
 ```markdown
 # FINAL REPORT — <project>
-Outcome: <shipped | plateaued-after-gambit | human-stopped>
+Outcome: <shipped | plateaued-after-gambit | human-stopped (attribution
+         evidence per SKILL.md, stop rules)>
 Cycles: <n> · Spend: <tokens/hours consumed>
 
 ## Contract verification (final sweep, fresh evidence)

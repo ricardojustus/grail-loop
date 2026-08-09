@@ -61,6 +61,45 @@ Plateau ≠ stop. On declaration:
      run.
    - Margin **< +2** → the plateau is real. Finalize.
 
+## The mid-run gambit — structural evidence, no plateau required
+
+The gambit is a tool for foundations, and a foundation-level defect does
+not wait four cycles to be foundation-level. Without a plateau
+declaration, the run is authorized to run ONE gambit when evidence says
+the deficiency is structural — any one of:
+
+- **A standing operator ruling names the mechanism** the loop keeps
+  refining (the grounding step, SKILL.md On invoke — a ruling found late
+  still counts as this trigger the moment it is found).
+- **A direction-level dimension sits at "clearly loses" or worse across
+  the evaluation window** (the same 3-consecutive-cycle window this file
+  defines) with no informative-bar movement — incremental fixes are not
+  reaching the dimension.
+- **A critic escalation flag**: a verdict marked "not fixable at this
+  altitude: medium/structural" (critics.md, verdict shape).
+
+Same shape as the plateau gambit: one bounded structural attempt at the
+named deficiency, clearly journaled as a gambit, champion–challenger
+exit test. Same rarity: a tool for foundations, never a license to
+thrash — a second gambit at the same cluster waits for the plateau
+protocol, where the stakes justify it.
+
+**The exit test is mode-split.** At plateau, < +2 finalizes (the
+protocol above) — the incremental loop was already exhausted. Mid-run,
+the exit test decides the gambit's fate, never the run's: **≥ +2** →
+adopt the gambit, reset the window, continue; **< +2** → revert to the
+champion, journal the loss, count one dedicated fix attempt on the
+cluster, and resume the incremental loop. A failed mid-run gambit is
+never a stop — the stop list is closed (SKILL.md).
+
+Two bookkeeping rules keep the mid-run gambit out of the plateau
+arithmetic: the fix attempt is counted on the LEDGER cluster the gambit
+attacked — a gambit launched from a piece-loop flag records its attempt
+only where a panel has raised that cluster (telemetry purity,
+critics.md) — and the exit-test margin is an exit test, never a window
+round: it enters neither the odometer-stall test nor any other plateau
+test.
+
 ## Finalization
 
 1. Re-verify the **entire Contract** with fresh evidence (gambits can silently
@@ -80,10 +119,18 @@ Plateau ≠ stop. On declaration:
 
 ## The outer boundary
 
-The **human** is the outer boundary. A stop order at any time — including a
-spend constraint named mid-run ("don't spend more than X") — skips directly
-to finalization, noting in the report that the human, not the plateau, ended
-the run. There is deliberately no codified budget cap: the spend was
+The **human** is the outer boundary, in both modes. Two different
+utterances, two different acts: a stop ORDER ("stop", "wrap it up") skips
+directly to finalization, noting in the report that the human, not the
+plateau, ended the run; a spend CEILING ("don't spend more than X") is an
+instruction the run obeys — it becomes a stop only when the ceiling is
+reached, and the entry recording that stop quotes the ceiling instruction
+plus the reading that fired it. Attribution evidence follows the closed
+stop list's rule (SKILL.md, stop rules); the run never infers a stop. A
+bounded run the human stops finalizes at the Contract's current verified
+state — FINAL_REPORT records every still-unverified item; the asymptotic
+finalization steps (the hidden set, refs/) do not exist there and are
+skipped. There is deliberately no codified budget cap: the spend was
 authorized explicitly at the launch gate, and a cap would terminate exactly
 the long-tail cycles the pursuit exists for. The plateau standard above is
 the honest brake; the human is the absolute one.

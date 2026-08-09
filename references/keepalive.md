@@ -76,6 +76,19 @@ under a hard deadline, watch for the completion sentinel, kill on
 staleness (no new output for N minutes), back it with a watchdog — then
 return to the loop and let notifications and the heartbeat do their jobs.
 
+## The parked-question hold
+
+When every remaining lane is gated on a parked question (SKILL.md, the
+closed stop list), the run HOLDS: park the question, notify the human,
+arm the heartbeat, and yield — each re-entry checks for the answer,
+finds none actionable, re-arms, and yields again. A hold is a wait, not
+an end: it writes no FINAL_REPORT and no stop record, and it exits only
+when the answer arrives or a stop rule fires. Where a harness
+autonomous-running convention supersedes this baseline, its own
+parked-question idle handling implements the hold — a session that
+convention closes is a suspended run with its state on disk, resumed on
+the answer, never a finalized one.
+
 ## The hard loop (optional)
 
 A Stop-hook completion-promise: a hook on the runtime's stop event
@@ -106,8 +119,12 @@ Generic shape — adapt to the runtime's hook schema:
 ```text
 on stop-event:
   last message contains "<EXACT FINALIZATION PHRASE>" → allow the stop
+  a parked question holds the run (every lane gated) → allow the stop
+    into the parked-question hold (heartbeat armed, no stop record) —
+    a hold makes no ledger progress by design and is not stall-thrash
   cap hit (iterations, or re-injections without ledger progress) →
-    allow the stop, flag it: "stopped by the cap, NOT finished"
+    allow the stop, flag it: "stopped by the cap, NOT finished" — an
+    accident report, never a fired stop rule; re-entry resumes the run
   otherwise → block the stop, re-inject the payload
 ```
 

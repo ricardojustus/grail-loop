@@ -101,15 +101,18 @@ Every asymptotic pursuit eventually hits diminishing returns: the early cycles a
 
 The run ends only by explicit rule:
 
-1. **Plateau declared**: 2 of 3 stall tests hold over a 3-cycle window (margin stall, altitude stall, criticism exhaustion). Declaration triggers one structural gambit at the top persistent deficiency; a decisive win resets the window, anything less finalizes.
-2. **Oscillation**: the same deficiency reintroduced twice (fixed, broken, fixed, broken). Immediate declaration, the loop is chasing its tail.
-3. **The human says stop**, anytime.
+1. **Plateau confirmed**: 2 of 3 stall tests hold over a 3-cycle window (margin stall, altitude stall, criticism exhaustion), or the same deficiency is reintroduced twice (oscillation, declared immediately). Declaration is not the end: it triggers one structural gambit at the top persistent deficiency, and the run ends only when that gambit fails the blind comparison. A decisive win resets the window and the run continues.
+2. **The human says stop**, anytime. A stop order ends the run now; a spend ceiling ("don't spend more than X") is obeyed as an instruction and becomes a stop when the ceiling is reached.
+
+The list is closed. Direction doubt, inferred operator intent, and spend worry are never stops: the run parks them as questions, notifies, and keeps working every lane the question does not block. A stop recorded as human-ordered must quote the human's actual instruction from that run; a run that stops without a fired rule has failed, whatever its reasoning.
+
+The gambit is not plateau-locked either: on structural evidence (a standing ruling, a dimension pinned at clearly-losing, or a critic escalating "not fixable at this altitude") it fires mid-run, where a failed gambit reverts to the champion and resumes instead of finalizing.
 
 There is deliberately no codified budget cap: a cap amputates exactly the long-tail cycles the pursuit exists for. Instead, the skill will not start without an explicit GO (see below), and you can name a spend constraint at any moment.
 
 ## Cost: read this before running
 
-**A Grail Run is a deliberate, heavy token spend.** Asymptotic mode runs cycles of builder fan-outs and multi-critic reviews, potentially for hours. That spend is the price of very high quality output in one autonomous shot. The skill states this and asks for your explicit GO at launch, plus one question about the sub-agent model: it names the current default and asks if you want to change it. No GO, no run.
+**A Grail Run is a deliberate, heavy token spend.** Asymptotic mode runs cycles of builder fan-outs and multi-critic reviews, potentially for hours. That spend is the price of very high quality output in one autonomous shot. The skill states this and asks for your explicit GO at launch, plus two questions: the sub-agent model (it names the current default and asks if you want to change it), and whether a NO from the medium-capability gate (the toolkit cannot physically reach the bars' form language) may proceed down the research-first ladder on its own or hold the visual lanes for your word. Unanswered, the run proceeds with the ladder using vetted tools only; custom-building always waits for you. No GO, no run.
 
 ## Reference images and copyright
 
@@ -122,9 +125,9 @@ SKILL.md                    the router: modes, launch gate, loop, stop rules
 references/contract.md      writing and verifying the machine-checked floor
 references/critics.md       the two judgment levels, blind comparisons, the ledger
 references/fanout.md        wave anatomy: parallel builders, briefs, ownership, triage
-references/plateau.md       stall tests, the gambit, finalization
-references/keepalive.md     the anti-stall baseline for unattended runs
-references/bars.md          choosing unreachable masters; direction vs bar
+references/plateau.md       stall tests, the gambit (plateau and mid-run), finalization
+references/keepalive.md     anti-stall baseline; the parked-question hold
+references/bars.md          choosing unreachable masters; the medium-capability gate
 references/games.md         domain pack: games
 references/apps.md          domain pack: apps and sites
 references/design.md        domain pack: static design work

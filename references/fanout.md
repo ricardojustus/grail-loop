@@ -49,9 +49,10 @@ is dispatched, do the integration work that briefs alone cannot:
 
 - **One shared preamble.** The floor every builder shares — the
   architecture contract's hard rules, the quality bar, the eye mandate,
-  validate-then-report — is written once as a PRE block and concatenated
-  onto every task-specific brief. The floor stated once, not N times
-  drifting apart.
+  validate-then-report, and any standing operator rulings the grounding
+  step quoted into the run's GIVEN material (SKILL.md, On invoke) — is
+  written once as a PRE block and concatenated onto every task-specific
+  brief. The floor stated once, not N times drifting apart.
 - **Every brief opens with a where-the-build-is-now block** — what is
   built, what landed last wave, and explicit NOT-to-be-reverted markers
   for fresh fixes a builder might otherwise "clean up."

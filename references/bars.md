@@ -73,6 +73,52 @@ And the set-level craft:
    confirm only if the choice is genuinely ambiguous. Log the reasoning in
    DECISIONS.md.
 
+## The medium-capability gate (before the first visual piece-loop)
+
+Bars set the form language; the authoring medium must be able to speak
+it. Once per VISUAL bar-bearing run — one whose ceiling includes seen
+surfaces, so visual piece-loops will run — before the first of them, ask
+and log in DECISIONS: **can the authoring toolkit physically reach the
+bars' form language?** (A run whose ceiling is all systems, copy, or
+audio has no visual piece-loop and no gate to run.) Hard-surface
+primitives — lathes, boxes, extrusions — cannot make sculpted organic
+form, and no number of critic
+rounds closes a gap the medium cannot express: when every builder holds
+the same insufficient toolkit, the asymptote of the loop is well-arranged
+primitives — below the bar by construction, with critics able only to
+restate the complaint to builders whose only possible answer is more
+primitives.
+
+A NO is an **operator touchpoint, surfaced the moment it fires**: the
+packet — what the bar's form language demands, why the medium falls
+short, the researched options with cost estimates, a recommendation —
+goes to the operator on the configured channel. What the run does NEXT
+is the launch gate's medium answer (SKILL.md, On invoke): answered
+HOLD → the visual lanes wait for the operator's word, every lane the
+gap does not gate running on; answered PROCEED — or unanswered, the
+stated default — the run walks the research-first ladder below on its
+own, bounded and logged, vetted tools only. CUSTOM-BUILDING is reserved
+to the operator in every case: the expensive fork never
+self-authorizes, whatever the launch answer. The medium call's final
+word stays the operator's; the ladder is the sanctioned unattended
+path through the cheap fork.
+
+The answer ladder is **research first**: existing vetted libraries and
+tools (the harness's prefer-existing rule, where one is installed),
+installed and proven on ONE representative form under its own small
+acceptance check (Contract-class criteria inside the run's CONTRACT.md,
+never a second contract document) before the run leans on it;
+custom-building only when the research comes back empty, with the
+emptiness logged. A run that
+hand-builds what a vetted library already does has failed the gate
+twice: once on capability, once on research.
+
+The gate reopens mid-run when a critic escalation flag names the medium
+(critics.md) — same packet, same operator touchpoint. And it is distinct
+from seat anatomy (fanout.md): a seat can have hands and eyes in one
+body and still be holding only boxes — the gate asks about the tools,
+not the seat.
+
 ## Informative-bar diagnostics (mid-run)
 
 Track which bars produce gradient. A bar that never rises above "decisively

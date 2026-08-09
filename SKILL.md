@@ -85,20 +85,41 @@ run's own thinking; the human never needs them.
    elicitation to produce a micro-vision — the bare-prompt path stays
    legitimate if declined. Done when: mode and domain chosen, logged in
    DECISIONS.md.
-2. **Launch gate (asymptotic).** Before anything is built, state in one
+2. **Ground in standing state** — for a run invoked inside a repo or
+   thread that already carries state files; inert for a fresh standalone
+   run, which has no state to read. BEFORE the Contract or bars are
+   written, read the DECISIONS/JOURNAL files the active journaling
+   convention names (`references/templates.md`) for standing operator
+   rulings. A ruling that binds direction is quoted into the run's GIVEN
+   material: DECISIONS.md at this step — the durable home every run has,
+   which bar selection reads before choosing — and, as each is created,
+   the aim prompt's concept/ambition paragraphs (asymptotic) and the
+   fan-out's shared preamble (`references/fanout.md`) carry the
+   applicable rulings forward, so every builder and bar decision starts
+   from them. An aim
+   that contradicts a standing ruling is a **launch conflict** — surface
+   it to the human at launch; a cycle-4 discovery of a ruling that was
+   on disk at launch is a grounding failure.
+3. **Launch gate (asymptotic).** Before anything is built, state in one
    short message: this is a deliberate high-token run — cycles of builder
    fan-outs and multi-critic reviews, plus a fresh critic on every piece,
    continuously; the spend is what buys the quality —
-   and ask two things: (a) an **explicit GO**, and (b) builder/critic
+   and ask three things: (a) an **explicit GO**; (b) builder/critic
    sub-agents default to the strongest non-frontier tier available
    (Opus-class; the harness's implementer pin where one exists) — default
-   fine, or change? No GO → no run. There is no budget cap to set — the
+   fine, or change?; (c) **if the medium-capability gate returns NO**
+   (`references/bars.md`), may the run proceed down the research-first
+   ladder on its own — bounded, logged, vetted tools only — or hold the
+   visual lanes for your word? Stated default when unanswered:
+   proceed-with-ladder; CUSTOM-BUILDING stays reserved to the operator
+   either way. No GO → no run. There is no budget cap to set — the
    stop rules and the human are the brakes, and the human can always name
    a constraint ad hoc ("don't spend more than X"), which the run obeys
    like any instruction. An invocation that already carries the GO and
    the model answer (a dispatching agent, a pre-authorized handoff)
-   passes the gate without re-asking.
-3. **Write CONTRACT.md.** First artifact of every run, before any
+   passes the gate without re-asking; an absent medium answer takes the
+   stated default.
+4. **Write CONTRACT.md.** First artifact of every run, before any
    building. From a vision doc: extract the Definition of Done into
    machine-checkable criteria. From a bare prompt: author the criteria
    and commit in writing — then run the mandatory contract cold-read
@@ -107,17 +128,21 @@ run's own thinking; the human never needs them.
    definition; the capture preflight belongs to capture-bearing runs —
    asymptotic, or any domain that renders frames — never to a headless
    errand). How, both: `references/contract.md`.
-4. **Asymptotic only — select the bars.** Bar selection and the
+5. **Asymptotic only — select the bars.** Bar selection and the
    direction/bar split: `references/bars.md`. Critic roster and domain
    Contract patterns: the one matching domain file (`references/games.md`,
    `references/apps.md`, `references/design.md`). Build `refs/` per the
    lifecycle in bars.md, then freeze the capture manifest and seal the
-   hidden set (`references/critics.md`).
-5. **Fill the aim prompt** (asymptotic) from the skeleton below and
+   hidden set (`references/critics.md`). Before the first visual
+   piece-loop, run the **medium-capability gate** — can the authoring
+   toolkit physically reach the bars' form language? Doctrine and the
+   research-first answer ladder: `references/bars.md`; a NO is an
+   operator touchpoint, never the run's own call.
+6. **Fill the aim prompt** (asymptotic) from the skeleton below and
    execute it as your own instructions immediately.
-6. **Run the loop**, logging telemetry per `references/critics.md`.
-7. **Check the stop rules** (below) every cycle.
-8. **Finalize**: re-verify the full Contract from clean state with
+7. **Run the loop**, logging telemetry per `references/critics.md`.
+8. **Check the stop rules** (below) every cycle.
+9. **Finalize**: re-verify the full Contract from clean state with
    evidence, open the hidden set for its one-time panel
    (`references/plateau.md`), write FINAL_REPORT.md, deliver the
    persistent-deficiency map — a real deliverable: the evidence-backed
@@ -178,7 +203,8 @@ build wave — per-piece builder↔critic loops on every inspectable piece
         b) master A/B: per-dimension deltas vs refs/, blind
         c) [domain] systems critic (playability / flow / engineering)
 → classify PANEL deficiencies vs ledger: new / repeat / reintroduced
-→ append LEDGER.md → update the workbench → feed deficiencies back to builders
+→ append LEDGER.md → update the workbench → openable artifact exists
+→ feed deficiencies back to builders
 → check stop rules → continue | plateau protocol | finalize
 
 [bounded]
@@ -199,11 +225,21 @@ contradiction in terms. Nothing in the run works for hours without eyes:
   the first panel, however unfinished the content. The first hours of an
   asymptotic run produce a judged picture, not a verified pile.
 - **After cycle 1, the panel fires when the wave's piece-loops converge**
-  (no piece critic naming a gap the builder has not answered) — and an
+  (no piece critic naming a gap the builder has not answered; an
+  escalated gap routes up, not to the builder, and never blocks
+  convergence — `references/critics.md`) — and an
   open cycle is never left to age: hours of building without a panel means
   close the cycle NOW, take the measurement, and split the remaining work
   into the next cycle. An unclosed cycle is an unmeasured cycle, and the
   stop rules go unchecked exactly that long.
+- **Cycle close is a checklist, and every item is a gate**: panel verdict
+  recorded → LEDGER.md appended → workbench updated → an **openable
+  artifact** exists — a build, page, or render the human can launch or
+  open themselves, however unfinished the content; piece frames are
+  working evidence, never the cycle's proof. A stale workbench or a
+  missing openable artifact blocks cycle close exactly as a failed
+  preflight blocks a capture, and the next wave does not start until the
+  checklist is green.
 - A work item whose output can be inspected — a seen surface (rendering,
   lighting, VFX, animation, UI), a system (its running behavior), or copy
   (its real text) — does not close until its piece-loop critic has seen
@@ -217,29 +253,53 @@ governs.)
 
 ## Stop rules — checked every cycle
 
-**Bounded mode stops** when the Contract is 100% verified with evidence.
-That is the finish line; there is no other.
+**Bounded mode stops** at Contract 100% verified with evidence — its
+completion finish line — or on the human's stop order, which reaches
+both modes (`references/plateau.md`, the outer boundary; a bounded
+human-stop finalizes at the Contract's current verified state, per that
+section).
 
-**Asymptotic mode stops** on the first of:
+**Asymptotic mode ends** on the first of:
 
-1. **Plateau declared** — after the minimum cycle count, any 2 of 3 hold
-   over the evaluation window: champion–challenger margins stalled;
-   informative bars show zero net gain; deficiency repeat-rate exhausted.
-   Thresholds, window, and minimum: `references/plateau.md`.
-2. **Oscillation** — the same deficiency reintroduced twice in the window
-   (fixed, broken, fixed, broken). Declare immediately; the loop is
-   chasing its tail. Overrides the 2-of-3 vote.
-3. **The human says stop** — anytime, including a spend constraint they
-   named mid-run. Deliberately no codified budget cap: the spend is
-   pre-authorized at the launch gate, and a cap would amputate exactly
-   the long-tail cycles the pursuit exists for.
+1. **Plateau confirmed** — plateau is DECLARED (any 2 of 3 tests over
+   the evaluation window after the minimum cycle count, or the
+   oscillation override — the same deficiency reintroduced twice in the
+   window — declared immediately, skipping the vote; thresholds, window,
+   minimum: `references/plateau.md`), the plateau protocol runs —
+   snapshot → notify the human on the configured channel (continue
+   without waiting) → ONE bounded structural gambit at the top
+   persistent deficiency — and the gambit's exit test FAILS
+   (champion–challenger margin < +2). Declaration alone never ends the
+   run: a decisive gambit (≥ +2) means the plateau was local — reset the
+   window, resume — and finalizing on a bare declaration, protocol
+   unrun, is a stop without a fired rule.
+2. **The human says stop** — anytime. A stop ORDER ends the run now; a
+   named spend CEILING ("don't spend more than X") is an instruction the
+   run obeys, becoming a stop only when the ceiling is reached
+   (`references/plateau.md`, the outer boundary, owns the split).
+   Deliberately no codified budget cap: the spend is pre-authorized at
+   the launch gate, and a cap would amputate exactly the long-tail
+   cycles the pursuit exists for.
 
-Plateau (rule 1 or 2) triggers the **plateau protocol**, not a silent
-stop: snapshot the ledger evidence → notify the human on the configured
-channel (continue without waiting) → run ONE bounded structural gambit at
-the top persistent deficiency. Gambit wins the champion–challenger
-comparison decisively (+2 or better) → plateau was local, reset the
-window, resume. Anything less → finalize. Full protocol:
+**The stop list is closed.** A run ends by a fired rule — bounded at
+Contract 100% or the human's stop order, asymptotic by rules 1–2 — and
+no other way. Direction doubt, inferred operator intent, spend concern,
+or any other judgment is never a stop: it is a QUESTION — park it in the
+journal, notify the human on the configured channel, and keep running
+every lane the question does not gate. When every remaining lane is
+gated on the question, enter the parked-question hold
+(`references/keepalive.md`; a superseding harness convention implements
+the same hold): armed re-entry, no FINAL_REPORT, no stop record — a
+hold awaits an answer; an end requires a rule. A stop attributed to the
+human requires the human's instruction from THIS run, quoted verbatim
+in the run-record entry that records the stop — LEDGER.md in an
+asymptotic run, the journal in a bounded one — and an inferred stop
+written as "human-stopped" is a falsified record. A run that stopped
+without a fired rule has failed, whatever its reasoning.
+
+The gambit is not plateau-locked: on structural evidence it also fires
+MID-RUN, where its exit test decides the gambit's fate, never the run's.
+Full protocol, mid-run triggers, and the mode-split exit test:
 `references/plateau.md`.
 
 ## Rules — both modes
@@ -339,8 +399,8 @@ Read on demand, not upfront:
 - `references/plateau.md` — plateau thresholds and window, the plateau
   protocol, the gambit, finalization.
 - `references/keepalive.md` — the anti-stall baseline: heartbeat, watcher
-  discipline, the optional Stop-hook hard loop (applies when no harness
-  autonomous-running convention supersedes it).
+  discipline, the parked-question hold, the optional Stop-hook hard loop
+  (applies when no harness autonomous-running convention supersedes it).
 - `references/bars.md` — bar selection, direction/bar split,
   informative-bar diagnostics, refs/ lifecycle.
 - `references/games.md` / `references/apps.md` / `references/design.md` —

@@ -92,6 +92,21 @@ curves; the plateau standard reads panels, not piece-loops.
   "for a browser game," "considering the scope") never appears: the bar
   is the bar. Named technical defects with a location are free wins —
   always report them.
+- **The structural escalation flag (optional, both levels).** A critic
+  judging a deficiency unfixable at the current altitude — the medium or
+  the architecture cannot express the fix, and further builder rounds
+  could only rearrange what already exists — marks it
+  **`not fixable at this altitude: medium|structural`**, with one
+  sentence naming what the medium or structure cannot do. The flag
+  routes UP, to the orchestrator (which spawns every critic and reads
+  every verdict): it feeds the mid-run gambit evaluation (plateau.md)
+  and, when it names the medium, reopens the medium-capability gate
+  (bars.md) — it is never routed back to a builder, whose only possible
+  answer is more of the same material. Three critics restating one
+  complaint in three wordings is this flag unraised. Telemetry purity is
+  unchanged: a panel flag enters the ledger like any panel deficiency; a
+  piece-loop flag reaches the orchestrator as orchestrator context, not
+  as a ledger row.
 
 (The champion–challenger signed margin, −3..+3, is unchanged by this
 shape — plateau.md's thresholds read that scale.)
@@ -246,8 +261,23 @@ of where the model's ceiling sits for this task.
 - churn: <diff size> vs margin gain → ratio
 - contract_progress: <passed>/<total>
 - spend: <tokens/hours/cycles consumed so far — telemetry, not a gate>
+- instrument_vs_artifact: <instrument touches> : <artifact touches> — surfaced, never capped
+- cycle_close: panel ✓ · ledger ✓ · workbench ✓ · openable: <path, open verified>
+- stop: <none | the rule that fired, with the evidence SKILL.md's stop rules require>
 ```
 
+The instrument line shows where the cycle's hands went. Classification
+is path-class based, the classes pinned at cycle 1: capture, metrics,
+tooling, check, and harness directories (tools/, scripts/ and their
+kin) count as INSTRUMENT; the artifact's own source and asset trees
+(src/, the engine's assets equivalent) count as ARTIFACT. Instrument
+work is legitimate — the ratio is surfaced, never capped — but a cycle
+spending several times more touches on instruments than on the artifact
+is a fact the telemetry must show while the run can still react to it,
+never a discovery for the morning after.
+
 The ledger is the machine version of the human glance that says "it's
-improving, keep going" or "it's done, stop" — so a 4 AM run can make that
-call with evidence instead of a human making it with a look.
+improving, keep going" or "it's done" — its curves feed the plateau
+standard's enumerated tests, so a 4 AM run ends by a fired stop rule
+with evidence instead of anyone's look. The ledger informs the rules; it
+never replaces them (SKILL.md, the closed stop list).
