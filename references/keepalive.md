@@ -38,6 +38,44 @@ working, not waste.
   evidence the run judges itself by. Confirm a delegate is dead through
   the runtime's own state surface before taking over its work.
 
+## Bounded waits — never block a turn on an unbounded wait
+
+**Scope: these rules govern waits on processes and commands the RUN ITSELF
+launches** — players, builds, servers, scripts. Runtime-tracked delegates
+AND broker jobs keep the watcher rules above for LIVENESS AND DEATH calls:
+silence is not death for a delegate, a broker's state comes from asking
+the broker, and no staleness kill ever applies to either. But no in-turn
+wait of any kind escapes rules 1 and 3 — a loop polling a broker or
+waiting on a delegate's file still carries a hard deadline (the deadline
+half of rule 1 only; its staleness kill stays forbidden for these), and
+past a few minutes it becomes background work with the heartbeat armed.
+
+The heartbeat guards idle-BETWEEN-turns. A session wedged inside a
+synchronous wait is not idle — the wakeup queues politely behind the very
+wait it should have broken, and nothing can interrupt the turn from
+outside. Three rules make that state unconstructible:
+
+1. **No unbounded waits.** Every blocking command carries a hard deadline
+   at the command itself — a timeout wrapper, a launch script with a
+   budget, a polling loop with a deadline and a staleness kill. A wait
+   that can outlive its budget is a bug at authoring time, not a practice
+   to discourage.
+2. **Completion is a positive signal only.** Detect "done" by a sentinel
+   the work itself writes at genuine completion — a log line, a marker
+   file — never by process state. Process state lies in both directions:
+   aliveness is not work, and exit is not done — a process that finished
+   its work but never exits holds a process-poll wait forever.
+3. **A long wait becomes background work.** Anything legitimately longer
+   than a few minutes runs as a background task; the turn ends; the
+   heartbeat is armed. That converts in-turn blocking (which nothing can
+   interrupt) into idle-with-outstanding-work (which the heartbeat
+   already guards). Never construct a wait the heartbeat cannot outlive.
+
+The launch-script shape that encodes all three: run the process detached
+under a hard deadline, watch for the completion sentinel, kill on
+staleness (no new output for N minutes), back it with a watchdog — then
+return to the loop and let notifications and the heartbeat do their jobs.
+
 ## The hard loop (optional)
 
 A Stop-hook completion-promise: a hook on the runtime's stop event

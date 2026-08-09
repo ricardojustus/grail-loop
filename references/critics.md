@@ -6,23 +6,95 @@ rounds (every fresh critic invents its own meaning of "6/10"), so critics emit
 only pairwise verdicts and same-context deltas. The run's memory lives in the
 ledger, never in the critics.
 
+## Two levels — the engine and the measurement layer
+
+Judgment runs at two levels, and the first is the one that keeps eyes on
+the work while it happens:
+
+- **Level 1 — the piece-loop engine (continuous, inside the build).** Every
+  piece with inspectable output — a scene, a screen, a system, a spread —
+  gets its own builder and its own fresh-context critic, looping while the
+  piece is built: the critic inspects the actual thing AGAINST the piece's
+  reference material — real pixels beside the refs/ frames for its
+  dimension when the piece is seen; the running product driven through its
+  journey when the piece is a system; the real text against the brief when
+  the piece is copy — never a summary the builder wrote, and never only
+  builder-selected evidence. It names the largest remaining gap relative
+  to that reference, and sends the piece back; the builder fixes; a fresh
+  critic re-judges. Continuous, woven into building — not batched, not
+  deferred to panels. The ORCHESTRATOR spawns the piece critic (never the
+  builder) and hands it the artifact, its launch/run command, and the
+  piece's reference material. A status line like "the player runs, zero
+  exceptions" is a builder summary, not an inspection.
+- **Level 2 — the measurement layer (per cycle).** The cold panels this
+  file defines — champion–challenger, master A/B, the systems critic —
+  plus the ledger and the plateau standard. This layer measures the run
+  between cycles; it is layered ON TOP of the engine and never a
+  substitute for it. A run whose only judgment is panel judgment has lost
+  its engine.
+
+**Telemetry purity**: piece-loop verdicts are advisory fix-fuel for the
+builder — they never enter LEDGER.md. Only cold-panel output feeds the
+curves; the plateau standard reads panels, not piece-loops.
+
 ## Cold-read protocol
 
 - Every critic is a **fresh sub-agent with clean context**. It has never seen
   the project improve, holds no attachment to progress, and knows nothing
   except what this round hands it. A critic that watched the game get better
   grades on a curve; a cold one just sees a build losing to the reference.
-- The builder NEVER critiques its own output. No self-screenshots-review, no
-  "use your vision capability on your own UI." If it built it, it doesn't
-  judge it.
+- **Never grade ≠ never look.** Builders look at their own output
+  continuously while working — launching the thing and sanity-checking your
+  own screen is required practice; hours of visual work shipped unseen is a
+  build failure. What builders never do is JUDGE: no verdicts, no
+  self-graded comparisons, no "my screenshot looks right so the piece
+  passes" — the builder's look is a smoke test, and every verdict belongs
+  to a fresh-context critic. If it built it, it doesn't grade it.
 - Randomize left/right (or A/B) position of images in every comparison —
   LLM judges have position bias. For decisions that matter (champion
   promotion, gambit evaluation), use 2–3 critics and majority-vote.
-- **A critic receives exactly the artifacts handed to it** — captures,
+  **Blind staging is leak-proof by construction**: the side assignment is
+  seeded and derivable, never a stored label; filenames handed to a
+  critic are neutral; no label rides any path, name, or metadata the
+  critic receives; and the seeded mapping is recomputable across
+  compaction — a summarized orchestrator re-derives which side was
+  which instead of losing the round.
+- **A PANEL critic receives exactly the artifacts handed to it** — captures,
   refs, the dimension list, the output format — and nothing else: no
   repository access, no state files, no ledger or journal (those are warm
-  context by definition). Spawn critics against a directory containing
+  context by definition). Spawn panel critics against a directory containing
   only the handed artifacts; the isolation is physical, not instructed.
+  A PIECE-LOOP critic (and the systems critic, which drives the artifact)
+  is instead handed the running artifact, its launch/run command, and the
+  piece's reference material — still nothing warm: no ledger, journal,
+  workbench, or prior verdicts. Cold context is the isolation both levels
+  share; the artifact surface differs by job.
+
+## Verdict shape (every critic, both levels)
+
+- **Verdict first, stated plainly, before any hedging.** Which side is
+  better, or whether the piece passes — then the reasoning. A verdict
+  buried under context is a verdict softened.
+- **Three deficiencies, largest gap first, each actionable.** A
+  comparison names the three specific things the weaker side does worse
+  — the largest remaining gap leads (that lead IS the piece-loop's
+  verdict; a piece with fewer than three genuine gaps names what remains)
+  — each phrased as a change someone could make: "the shadow terminator
+  is a hard edge; soften it" — never a mood. These are the itemized
+  deficiencies the ledger classifies (panels) or the fix-fuel the builder
+  consumes (piece-loops).
+- **One honest credit (comparisons).** The one thing the weaker side does
+  better, if anything, said plainly. Honesty about partial wins keeps the
+  verdict credible.
+- **Calibration floors, stated in the critic's brief**: a 7 is a
+  competent shipped product; the median first-pass output is a 4. No 8s
+  to be polite, and the phrase "given the constraints" (and its family —
+  "for a browser game," "considering the scope") never appears: the bar
+  is the bar. Named technical defects with a location are free wins —
+  always report them.
+
+(The champion–challenger signed margin, −3..+3, is unchanged by this
+shape — plateau.md's thresholds read that scale.)
 
 ## The capture manifest
 
@@ -34,10 +106,39 @@ different camera angles measures the angle, not the progress, and every
 stop rule sits downstream of that signal. The manifest may gain entries as
 new subsystems appear; existing entries never change mid-run.
 
+The same discipline binds the artifact: **captures must be deterministic —
+same config in, same pixels out** — sameness defined by the preflight's
+pixel-diff threshold, byte-identical where the renderer permits it.
+Seeded randomness only; stateful animation driven from injected time or
+frozen; temporal effects may carry benign nondeterminism — that is what
+the threshold absorbs, and without the discipline the screenshot
+comparisons are worthless.
+
 Captures are run evidence: stored per cycle (`captures/cycle-N/`), never
 deleted or modified until finalization. The champion's captures are the
 odometer's memory — deleting them blinds the odometer the way deleting
 refs/ blinds the masters.
+
+**The capture preflight runs on every capture invocation.** Before any
+capture is handed to a critic or stored as evidence, a deterministic
+degenerate-output check runs on it: non-zero file size, resolution matching
+the manifest, and the frame not a near-uniform void (single-color,
+blown-white, or crushed-black by histogram). The preflight also owns the
+run's **sameness threshold** — a pixel-diff tolerance pinned once at
+first light (what share of pixels may differ, and by how much) —
+consulted wherever two captures are compared for determinism;
+byte-identical is that threshold's zero setting, chosen where the
+renderer permits it. A failed preflight is an
+instrument-floor failure (contract.md): the run's eyes are broken, and
+fixing them preempts everything else. An instrument without a schedule is
+decoration — the preflight's schedule is every capture, and captures run
+from first light onward (SKILL.md, Cycles).
+
+**Piece-loop captures are working evidence, not manifest evidence.** They
+live outside `captures/cycle-N/`, are never handed to a panel, and never
+join the manifest — a champion–challenger pair drawn from a working shot
+measures the angle, not the progress. The preflight still runs on them
+(every capture, no exceptions); only their storage and audience differ.
 
 ## The hidden set (sealed holdout)
 
@@ -51,9 +152,9 @@ same form (scenes, cameras, states, exact commands) covering angles and
 states the manifest does not — then **seal it**:
 
 - **Stored in orchestrator state only** — the orchestrating context's own
-  notes, never the repo's manifest file, CONTRACT.md, LEDGER.md, or any
-  file builders or critics read. Its existence may be logged; its
-  contents may not.
+  notes, never the repo's manifest file, CONTRACT.md, LEDGER.md, the
+  workbench (an always-visible surface by design), or any file builders or
+  critics read. Its existence may be logged; its contents may not.
 - **Never captured, never judged, never named to builders** during the
   run. A holdout that leaks feedback is just more manifest.
 - **Opened exactly once, at finalization.**
@@ -116,8 +217,10 @@ the core experience regardless of how the visuals scored.
 
 ## The deficiency ledger
 
-Every critic returns **itemized deficiencies** (concrete, actionable, ranked).
-After each cycle, classify each item against the accumulated ledger:
+Every PANEL critic returns **itemized deficiencies** (concrete, actionable,
+ranked). After each cycle, classify each panel item against the accumulated
+ledger — piece-loop verdicts are never classified here (Telemetry purity
+above):
 
 - **new** — never raised before
 - **repeat** — raised before, still present

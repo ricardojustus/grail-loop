@@ -12,6 +12,22 @@
   test.
 - Asset integrity: no missing textures/models/audio at runtime (scan logs).
 
+## The render daemon (capture cost — instrument-floor item)
+
+A look must cost seconds, not a compile-and-launch. How, by engine class:
+
+- **Cheap-boot engines** (web builds, dev servers): every builder gets its
+  own instance on its own port — parallel looking, no collisions
+  (fanout.md).
+- **Expensive-boot engines** (a heavyweight editor, a device build): keep
+  ONE warm editor/dev-player alive for the whole run as a capture server,
+  requests serialized through it. A cold engine per look silently rations
+  looking — the eye mandate dies of capture cost, not of policy.
+
+Either shape is part of the capture pipeline the instrument floor proves
+at first light (contract.md); it also decides which seats may take visual
+work (SKILL.md, seat anatomy).
+
 ## Critic roster (ceiling)
 
 - **Visual critic** — champion–challenger comparison + master A/B per critics.md. Capture

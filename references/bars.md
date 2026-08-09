@@ -108,7 +108,8 @@ altitude-stall plateau test (see plateau.md).
   material, held locally and used solely for private, transient comparative
   evaluation during the run, then deleted. This handling is what makes
   fetching them appropriate; state it in the .gitignore comment. refs/ is used solely
-  for blind comparison.
+  for comparative evaluation — blind in the panels, side by side in the
+  piece loops.
 - **Never delete or modify refs/ during the run** — a sub-agent that "cleans
   up" mid-run silently blinds every later critic, degrading the gauntlet to
   vibes with no alarm. Delete refs/ only as the very final action, after the

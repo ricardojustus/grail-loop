@@ -10,6 +10,12 @@ afterward. Write them for honesty, not advocacy.
 Source: <bare prompt | vision doc: path> · Authored: <by agent | extracted>
 GO: <received at launch, timestamp> · Subs: <model tier confirmed at the gate>
 
+## Instrument floor (verified first — first light)
+- [ ] Builds and launches clean — CHECK: <command>
+- [ ] Captures emit and pass the degenerate-frame preflight — CHECK: <preflight script/procedure>
+      (capture-bearing runs only — omit this row when the run has no capture surface,
+       e.g. a headless bounded errand)
+
 ## Definition of Done (all must pass with evidence)
 - [ ] CRITERION: <falsifiable claim>
       CHECK: <exact command/procedure>
@@ -39,6 +45,20 @@ altitude: <net gain> (<stall? y/n>) · repeat-rate: <pct>, top cluster
 attempts=<k> (<exhaustion? y/n>) · oscillation: <none | ITEM (declare)>
 → verdict: continue | PLATEAU PROTOCOL
 ```
+
+## WORKBENCH.md (or a local HTML page) — asymptotic runs
+
+The human's glance surface — zero interruption, and its ACCESS PATH is
+named at launch (a file only the workstation can read is not a glance
+surface; use the harness-named synced/served surface where one exists).
+**Update cadence**: at every panel close, at every champion change, and
+as pieces land visible improvements — the surface stays live, never
+hours stale. Newest first: current champion captures, per-wave
+screenshots, the latest panel verdicts (one line each), Contract-lane
+progress (n/total), the run's status line. The workbench SHOWS; the
+LEDGER measures — no telemetry tables here, and the sealed hidden set
+never appears on it. This section owns the content list; other files
+point here.
 
 ## JOURNAL.md and DECISIONS.md
 

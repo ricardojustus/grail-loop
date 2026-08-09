@@ -11,6 +11,80 @@ Writing the Contract first forces the run to commit to falsifiable criteria befo
 motivation exists to weaken them. A Contract written mid-run bends toward what
 already got built. A Contract written first is a real commitment.
 
+## A lane, not a gate
+
+The Contract is one of two parallel lanes, not a gate in front of judgment.
+Machine verification and critic judgment run side by side from first light
+onward; neither waits for the other. On a Contract of real size (bot
+playthroughs, benchmark suites, destructive batteries), "verify the floor
+before judging" silently becomes "no eyes for the first day" — and a run
+can then pass criteria all night while shipping a broken picture, every
+pass honest and none of them about the picture.
+
+The one genuinely gating tier is the **instrument floor**: the artifact
+builds, launches, and — in any capture-bearing run — its captures emit
+and pass the capture preflight (critics.md); a run with no capture surface
+(a headless bounded errand) has no capture criterion, and its floor is
+build + launch + its own reachable checks. Reachable in the first hours by
+design — "first light" — because critics cannot function without frames;
+while the instrument floor fails, fixing it preempts everything else.
+The instrument floor obeys the exclusivity law below: machine-checkable,
+reachable by construction — Contract-class through and through, just
+scheduled first.
+
+**The instrument is the run's first build** — unless a proven one is
+inherited, in any capture-bearing run the capture pipeline is built and
+round-trip verified (a real capture written and read back) before
+artifact code. The round-trip proof passes on write + read-back; the
+preflight's void check applies to captures of the built artifact, from
+first light onward. (A headless errand has no capture pipeline to
+prove.)
+
+Every other Contract item verifies progressively in its own lane, whenever
+its checks can run. 100% is required at finalization and only there; no
+OTHER Contract progress is a prerequisite for judgment of any kind —
+piece-loop critics and cold panels run on schedule regardless of how much
+floor remains unverified. (Bounded mode is unchanged: the Contract is the
+whole run there, and its 100% is the one finish line.)
+
+### What the instrument floor buys — the capability list
+
+The floor is not one screenshot command. For a run with a running
+artifact to inspect, the instrument proven at first light — and grown as
+subsystems appear — includes the capabilities below (the examples are
+game-flavored; translate per domain). A run whose deliverable is a
+single rendered artifact (a poster, a spread) keeps the capture
+preflight on every capture like any capture-bearing run (critics.md);
+what it skips is the list below — its instrument is the render +
+read-back plus its own reachable checks.
+
+- **A named viewpoint registry** — poses/scenes/states by name, in one
+  registry; a location worth capturing is added there, never hardcoded
+  in a subsystem.
+- **State injection** — time, camera, weather, entity positions, feature
+  flags settable per capture, so any moment reproduces on demand.
+- **Settle frames** — let temporal effects converge before the frame is
+  taken.
+- **A pre-capture isolation hook** — kill fog, force a light, freeze
+  motion — so a defect attributes to one system instead of being guessed
+  at.
+- **Per-agent output directories** — parallel builders capture without
+  colliding; per-agent instances too where the engine is cheap to boot,
+  one warm capture daemon where it is not (games.md, fanout.md).
+- **Ad-hoc capture specs beside the registry** — a one-off state is
+  capturable declaratively (a config passed at invocation) without
+  registering it first; the registry holds the recurring views, not
+  every view.
+- **Console/log-error capture riding every shot** — runtime errors are
+  collected with the frame, so a capture that looks fine cannot hide
+  the exceptions it rendered through.
+- **Positive readiness signals** — the artifact reports ready/settled
+  itself; the capture never guesses by sleeping.
+- **A per-subsystem boot-failure report** — when the artifact fails to
+  come up, the instrument says which subsystem, not just "black frame."
+- **A numbers probe beside the shot tool** — evaluate state in the
+  running artifact ("is the sun actually on?") without adding debug UI.
+
 ## Sourcing the Contract
 
 **From a vision doc**: the Definition of Done is usually already present in
@@ -28,8 +102,10 @@ spontaneity — the agent authored the criteria, so design freedom is intact.
 
 **The contract cold-read (mandatory, bare-prompt mode only).** A self-authored
 Contract has one undefended loophole: honest-looking but hollow criteria.
-Before building starts, hand one fresh critic CONTRACT.md and the aim prompt —
-nothing else — with two questions: *if this artifact were secretly broken or
+Before building starts, hand one fresh critic CONTRACT.md and the run's goal
+statement **as it stands at contract time** — the prompt the run was invoked
+with (the aim prompt is filled later and cannot be handed here) — nothing
+else — with two questions: *if this artifact were secretly broken or
 hollow, what check is missing?* and *does any criterion's pass depend on
 critic judgment or an unreachable comparison? Flag it for removal or
 reformulation as a measured benchmark* (the exclusivity law below — one

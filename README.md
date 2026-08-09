@@ -8,7 +8,7 @@
 
 **Grail Loop** is an autonomous build methodology for coding agents. Point it at a game, an app, a site, or a design piece. It writes a machine-checkable definition of done before building anything, then builds in cycles while fresh cold-context critics blind-compare every cycle's output against master references it can never match (real film stills, shipped AAA frames, category-defining product UI). The pursuit of an unreachable bar is what forges the quality. Telemetry, not vibes, decides when the run ends.
 
-Ships as a [Claude Code](https://code.claude.com) skill: one `SKILL.md` router plus eight on-demand reference files.
+Ships as a [Claude Code](https://code.claude.com) skill: one `SKILL.md` router plus ten on-demand reference files.
 
 ## Quickstart
 
@@ -79,6 +79,8 @@ Fresh critics cannot calibrate absolute scores across rounds (every fresh judge 
 - **Master A/B** (altitude): per-dimension blind deltas against the reference masters. Measures which way is up.
 - **Deficiency ledger**: every complaint classified new / repeat / reintroduced, with fix attempts counted. A twice-attacked survivor reported by critics who never met each other is a wall, and the map of walls ships in the final report as a first-class deliverable: where the model's ceiling actually sits.
 
+Those three are the measurement layer, between cycles. A second judgment level runs inside the build: every piece with visible output gets its own fresh critic while it is being made, and the builder itself must read its own screenshots and iterate (an agent that edits visuals without looking at the result is guessing). Visual work only goes to agents that can both see images and capture their own output in seconds; blind agents get the systems, tests, and tooling, where logs are the feedback. The wave anatomy that makes a dozen parallel builders integrate on the first try (the shared interface contract, per-agent file ownership, the diagnose-only triage specialist) lives in `references/fanout.md`.
+
 ## What a cycle looks like
 
 One critic verdict, in the ledger's shape (illustrative):
@@ -118,13 +120,15 @@ Master references (film stills, game frames, product captures) are downloaded to
 ```
 SKILL.md                    the router: modes, launch gate, loop, stop rules
 references/contract.md      writing and verifying the machine-checked floor
-references/critics.md       cold-read protocol, blind comparisons, the ledger
+references/critics.md       the two judgment levels, blind comparisons, the ledger
+references/fanout.md        wave anatomy: parallel builders, briefs, ownership, triage
 references/plateau.md       stall tests, the gambit, finalization
+references/keepalive.md     the anti-stall baseline for unattended runs
 references/bars.md          choosing unreachable masters; direction vs bar
 references/games.md         domain pack: games
 references/apps.md          domain pack: apps and sites
 references/design.md        domain pack: static design work
-references/templates.md     CONTRACT, LEDGER, FINAL_REPORT skeletons
+references/templates.md     CONTRACT, LEDGER, WORKBENCH, FINAL_REPORT skeletons
 ```
 
 ## FAQ

@@ -37,8 +37,9 @@ You can name quality bars ("at the level of X") and a style ("in the vein
 of Y") — or leave both to me. I will: write CONTRACT.md (the machine-checked
 definition of done) before building, download reference images into refs/,
 build in cycles, have fresh cold critics blind-compare every cycle against
-the references, log everything to LEDGER.md and JOURNAL.md, and stop by
-explicit rules (plateau / you). You read FINAL_REPORT.md at the end.
+the references, keep a live workbench page you can glance at from a phone,
+log panel telemetry to LEDGER.md and the run's story to JOURNAL.md, and
+stop by explicit rules (plateau / you). You read FINAL_REPORT.md at the end.
 Asymptotic runs are deliberately token-heavy — I will state the spend and
 ask for your explicit GO before the run starts.
 ```
@@ -54,7 +55,12 @@ Two layers answering two different questions:
 
 The machinery — Contract checks, ledger, plateau standard — measures the
 loop **between** cycles. **Inside** a build cycle, builder sub-agents own
-their approach entirely; the aim prompt is their whole instruction.
+their approach entirely; in ASYMPTOTIC mode the engine runs there too:
+every piece with inspectable output loops with its own fresh-context piece
+critic while it is built (`references/critics.md`, the two levels). The
+panels measure; the piece-loops keep eyes on the work while it happens.
+(Bounded runs carry neither engine nor panels — Contract checks are their
+whole verification.)
 
 ## Modes
 
@@ -81,7 +87,8 @@ run's own thinking; the human never needs them.
    DECISIONS.md.
 2. **Launch gate (asymptotic).** Before anything is built, state in one
    short message: this is a deliberate high-token run — cycles of builder
-   fan-outs and multi-critic reviews; the spend is what buys the quality —
+   fan-outs and multi-critic reviews, plus a fresh critic on every piece,
+   continuously; the spend is what buys the quality —
    and ask two things: (a) an **explicit GO**, and (b) builder/critic
    sub-agents default to the strongest non-frontier tier available
    (Opus-class; the harness's implementer pin where one exists) — default
@@ -95,7 +102,11 @@ run's own thinking; the human never needs them.
    building. From a vision doc: extract the Definition of Done into
    machine-checkable criteria. From a bare prompt: author the criteria
    and commit in writing — then run the mandatory contract cold-read
-   before building starts. How, both: `references/contract.md`.
+   before building starts. Mark the **instrument-floor items** — the
+   reachable checks that verify first (`references/contract.md` owns the
+   definition; the capture preflight belongs to capture-bearing runs —
+   asymptotic, or any domain that renders frames — never to a headless
+   errand). How, both: `references/contract.md`.
 4. **Asymptotic only — select the bars.** Bar selection and the
    direction/bar split: `references/bars.md`. Critic roster and domain
    Contract patterns: the one matching domain file (`references/games.md`,
@@ -134,9 +145,15 @@ critic until the very final action, then delete it.
 
 Fan out sub-agents and have sub-agents tackle each subsystem individually
 so that the [THING] is utterly perfect. You should /loop on each item and
-have a separate, fresh-context sub-agent check it visually against the
-reference material. That critic must be a really harsh cold reader, and if
+have a separate, fresh-context sub-agent check it against the reference
+material — visually for anything seen, by driving the running product for
+systems. That critic must be a really harsh cold reader, and if
 it doesn't meet [TIER], it should keep going.
+
+Maintain a simple live progress page (WORKBENCH.md or a local HTML page,
+at the access path named at launch) and update it as you work — content
+and cadence per the workbench template — so progress can be glanced at
+without interrupting you.
 
 Don't stop until a fresh critic, comparing side by side blind, genuinely
 struggles to say which side is the reference. You will not reach that
@@ -147,16 +164,56 @@ Fan out sub-agents and ultracode.
 ## The loop (both modes)
 
 ```
-build cycle → machine-check Contract progress (bounded: the whole check)
-           → [asymptotic] capture evidence → spawn FRESH cold critics:
-                a) champion–challenger: current vs best-so-far, blind,
-                   signed margin (−3..+3)
-                b) master A/B: per-dimension deltas vs refs/, blind
-                c) [domain] systems critic (playability / flow / engineering)
-           → classify deficiencies vs ledger: new / repeat / reintroduced
-           → append LEDGER.md → feed deficiencies back to builders
-           → check stop rules → continue | plateau protocol | finalize
+[asymptotic]
+build wave — per-piece builder↔critic loops on every inspectable piece
+             (a wave = the build phase of one cycle; critics inspect real
+              output against the piece's references, continuously;
+              critics.md — wave anatomy + briefs + ownership: fanout.md)
+  ∥ in parallel: the Contract lane verifies whatever items can run
+             (instrument floor first — first light)
+→ cycle close = the judged panel:
+     capture evidence (preflight on every capture) → spawn FRESH cold critics:
+        a) champion–challenger: current vs best-so-far, blind,
+           signed margin (−3..+3)
+        b) master A/B: per-dimension deltas vs refs/, blind
+        c) [domain] systems critic (playability / flow / engineering)
+→ classify PANEL deficiencies vs ledger: new / repeat / reintroduced
+→ append LEDGER.md → update the workbench → feed deficiencies back to builders
+→ check stop rules → continue | plateau protocol | finalize
+
+[bounded]
+build → verify Contract items progressively as their checks can run
+→ a bounded cycle closes on a Contract-lane verification round
+→ stop at Contract 100% verified with evidence (no panels, no piece-loop
+  engine, no ceiling — the Modes table governs)
 ```
+
+## Cycles (asymptotic) — a cycle ends in a judged panel
+
+A cycle is not a unit of time or a pile of work items: **a cycle ENDS in a
+judged panel**, and "cycle complete" without a panel verdict is a
+contradiction in terms. Nothing in the run works for hours without eyes:
+
+- **Cycle 1's explicit target is first light** — the artifact builds,
+  launches, captures emit and pass the preflight — judged immediately by
+  the first panel, however unfinished the content. The first hours of an
+  asymptotic run produce a judged picture, not a verified pile.
+- **After cycle 1, the panel fires when the wave's piece-loops converge**
+  (no piece critic naming a gap the builder has not answered) — and an
+  open cycle is never left to age: hours of building without a panel means
+  close the cycle NOW, take the measurement, and split the remaining work
+  into the next cycle. An unclosed cycle is an unmeasured cycle, and the
+  stop rules go unchecked exactly that long.
+- A work item whose output can be inspected — a seen surface (rendering,
+  lighting, VFX, animation, UI), a system (its running behavior), or copy
+  (its real text) — does not close until its piece-loop critic has seen
+  that real output (`references/critics.md`).
+- The Contract lane never delays a panel (`references/contract.md` — a
+  lane, not a gate).
+
+(Bounded runs have no panels: a bounded cycle closes on a Contract-lane
+verification round, and the run ends at Contract 100% — the Modes table
+governs.)
 
 ## Stop rules — checked every cycle
 
@@ -189,14 +246,28 @@ window, resume. Anything less → finalize. Full protocol:
 
 Each line is the rule; the named reference owns the procedure and numbers.
 
-- **All judgment comes from fresh, separate cold critics** — output is
-  graded only by contexts that did not build it. Protocol:
-  `references/critics.md`.
+- **All verdicts come from fresh, separate cold critics** — output is
+  graded only by contexts that did not build it. Builders look at their own
+  output continuously while working; they never grade it (never grade ≠
+  never look). CEILING critics exist in asymptotic mode only — a bounded
+  run's verdicts are its Contract checks — but the contract cold-read
+  (`references/contract.md`) runs in every bare-prompt run, both modes: it
+  reviews the Contract, not the artifact. Protocol + the two judgment
+  levels (piece-loop engine / measurement panels): `references/critics.md`.
 - **Critics compare; only warm ledgers count.** Pairwise verdicts and
   same-context deltas; the run's memory lives in LEDGER.md.
+- **Visual authoring needs hands and eyes in one body.** A seat takes
+  visual authoring only if it natively reads images AND gets a fresh
+  capture of its own output in seconds — captured directly, or fed by a
+  warm capture service the run controls; eyeless seats take work whose
+  feedback medium is logs and numbers — systems, tests, tooling, the
+  Contract lane. Detail + the full wave anatomy (doc trio, briefs,
+  ownership, triage seats): `references/fanout.md`.
 - **Evidence decides.** Contract items are verified by scripts, tests,
   destructive trials, or captured artifacts — "it should work" is not
-  evidence. Doctrine: `references/contract.md`.
+  evidence. The Contract is a parallel lane, never a gate in front of
+  judgment; only the instrument floor (build, launch, passing captures)
+  schedules first. Doctrine: `references/contract.md`.
 - **Imitate the reachable, lose to the unreachable.** Direction and bar
   are different slots; a reachable reference in the bar set installs an
   exit door. Split: `references/bars.md`.
@@ -218,12 +289,26 @@ Each line is the rule; the named reference owns the procedure and numbers.
   for a cold panel, and FINAL_REPORT carries the manifest-vs-hidden margin
   delta. The panel audits the stop; it never gates it. Protocol:
   `references/critics.md`.
+- **The workbench keeps the human's glance cheap.** The run maintains a
+  simple auto-updating progress surface (WORKBENCH.md or a local HTML
+  page) and NAMES ITS ACCESS PATH at launch — a file only the workstation
+  can read is not glanceable; where the harness provides a synced or
+  served surface the human already reads, use it. Visual observability,
+  not telemetry: the LEDGER measures, the workbench shows. The sealed
+  hidden set never appears on it. Content list + update cadence:
+  `references/templates.md`.
+- **Smoothing pass** (optional; the harness binding may turn it on or
+  off): at the end of a MAJOR wave — a milestone, not every cycle — one
+  fresh agent inspects the complete artifact for coherence across
+  separately-improved pieces — resolving seams and conflicts, never
+  redesigning. Independently-improved pieces drift apart; the smoothing
+  pass is the counterweight.
 - **Process vocabulary stays out of the artifact.** Contract, ceiling,
   champion, ledger, plateau, gambit describe the methodology only; the
   artifact's code, naming, copy, and content take vocabulary from the
   user's concept alone.
 - **State files are the review interface.** Maintain CONTRACT.md,
-  LEDGER.md (asymptotic), and FINAL_REPORT.md — templates in
+  LEDGER.md + the workbench (asymptotic), and FINAL_REPORT.md — templates in
   `references/templates.md` — plus JOURNAL.md and DECISIONS.md, which
   follow the harness's existing journaling conventions when another
   active skill defines them; grail entries join that journal rather than
@@ -244,9 +329,13 @@ Read on demand, not upfront:
 - `references/contract.md` — writing and verifying the Contract;
   extraction from vision docs; self-authored contracts; destructive
   testing.
-- `references/critics.md` — cold-read protocol, champion–challenger
-  comparison, master A/B decomposition, signed margins, deficiency
-  ledger, telemetry schema.
+- `references/critics.md` — the two judgment levels (piece-loop engine +
+  measurement panels), cold-read protocol, verdict shape, capture
+  preflight, champion–challenger comparison, master A/B decomposition,
+  signed margins, deficiency ledger, telemetry schema.
+- `references/fanout.md` — wave anatomy: the doc trio, builder briefs +
+  the eye mandate, ownership and the builder report, the triage
+  seat, seat anatomy.
 - `references/plateau.md` — plateau thresholds and window, the plateau
   protocol, the gambit, finalization.
 - `references/keepalive.md` — the anti-stall baseline: heartbeat, watcher
@@ -256,8 +345,8 @@ Read on demand, not upfront:
   informative-bar diagnostics, refs/ lifecycle.
 - `references/games.md` / `references/apps.md` / `references/design.md` —
   domain packs: Contract patterns, critic rosters, bar libraries.
-- `references/templates.md` — CONTRACT.md, LEDGER.md, JOURNAL.md,
-  DECISIONS.md, FINAL_REPORT.md skeletons.
+- `references/templates.md` — CONTRACT.md, LEDGER.md, WORKBENCH.md,
+  JOURNAL.md, DECISIONS.md, FINAL_REPORT.md skeletons.
 
 ## Status lines
 
